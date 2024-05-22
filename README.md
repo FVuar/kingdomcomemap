@@ -1,3 +1,3 @@
 # Kingdom come deliverance map türkçe çevirisi
 
-Original website : [kingdomcomemap.github.io](kingdomcomemap.github.io)
+Original website : [kingdomcomemap.github.io](https://kingdomcomemap.github.io)
