@@ -275,11 +275,94 @@ function getSideBarContent() {
         textRedditLinkImage.alt = "Discord";
         textRedditLink.appendChild(textRedditLinkImage);
     }
+    function getAbout() {
+        // about panel
+        const sideBarPanel = document.createElement('div');
+        sideBarPanel.classList.add('sidebar-pane');
+        sideBarPanel.id = "about";
+        sideBarContent.appendChild(sideBarPanel);
+
+        sideBarClose(sideBarPanel);
+
+        function getTitle(parent, text, date) {
+            const updateTitle = document.createElement('h3');
+            updateTitle.innerText = text;
+            parent.appendChild(updateTitle);
+
+            const updateDay = document.createElement('span');
+            updateDay.classList.add('updateday');
+            updateDay.innerText = date;
+            parent.appendChild(updateDay);
+        }
+        function getUpdateList(parent, version) {
+            const updateList = document.createElement('ul');
+            updateList.classList.add('update-list');
+            parent.appendChild(updateList);
+
+            const notes = chooseLanguages.tr.body.panel.about[version].notes;
+            for (let key in notes) {
+                if (notes.hasOwnProperty(key)) {
+                    const listItem = document.createElement('li');
+                    listItem.innerText = notes[key];
+                    listItem.classList.add('text');
+                    updateList.appendChild(listItem);
+                }
+            }
+        }
+        function getUpdate() {
+            getTitle(contentUpdate, chooseLanguages.tr.body.panel.about["v1.3.1"].title, chooseLanguages.tr.body.panel.about["v1.3.1"].release_date);
+            getUpdateList(contentUpdate, "v1.3.1");
+            getTitle(contentUpdate, chooseLanguages.tr.body.panel.about["v1.3"].title, chooseLanguages.tr.body.panel.about["v1.3"].release_date);
+            getUpdateList(contentUpdate, "v1.3");
+            getTitle(contentUpdate, chooseLanguages.tr.body.panel.about["v1.2"].title, chooseLanguages.tr.body.panel.about["v1.2"].release_date);
+            getUpdateList(contentUpdate, "v1.2");
+            getTitle(contentUpdate, chooseLanguages.tr.body.panel.about["v1.0"].title, chooseLanguages.tr.body.panel.about["v1.0"].release_date);
+            getUpdateList(contentUpdate, "v1.0");
+        }
+        function getText(parent, type, text, htmlTYPE) {
+            const element = document.createElement(htmlTYPE);
+            element.innerHTML = text;
+            switch (type) {
+                case 'text creator':
+                    element.classList.add('text','creator');
+                    break;
+                default:
+                    element.classList.add('text');
+            }
+            parent.appendChild(element);
+        }
+        function getLegalInfo() {
+            const legalInfo = document.createElement('div');
+            legalInfo.classList.add('legalinfo');
+            contentUpdate.appendChild(legalInfo);
+
+            getText(legalInfo, 'text creator', 'Kingdom Come Deliverance Haritası', 'p');
+            getText(legalInfo, 'text creator', 'RogerHN Tarafından Yaratıldı.', 'p');
+            getText(legalInfo, 'text', 'İşaretçilerle ilgili yardımlarından dolayı Talys ve POiZiE\'ye çok teşekkür ederiz.', 'p');
+            getText(legalInfo, 'text', 'Ayrıca <a class="link" href="https://www.pubgmap.io" target="_blank">pubgmap.io</a>\'dan Webdestroya\'ya işaretçi kodunu düzeltmeme yardım ettiği için çok teşekkür ederim.', 'p');
+            getText(legalInfo, 'text', 'AhmetCan IŞIK tarafından türkçeye çevirildi.', 'p');
+            getText(legalInfo, 'text', '<a class="link" href="https://www.kingdomcomerpg.com" target="_blank">Kingdom Come: Deliverance</a> logosu, simgeleri ve haritasının telif hakkı ve mülkiyeti <a class="link" href="https://warhorsestudios.cz/" target="_blank">Warhorse Studios</a>\'a aittir.', 'p');
+        }
+
+        const listTitle = document.createElement('p');
+        listTitle.classList.add('list-title');
+        listTitle.dataset.i18n = "info";
+        listTitle.innerText = chooseLanguages.tr.body.panel.about.main_title;
+        sideBarPanel.appendChild(listTitle);
+
+        const contentUpdate = document.createElement('div');
+        contentUpdate.classList.add('content','update');
+        sideBarPanel.appendChild(contentUpdate);
+
+        getUpdate();
+        getLegalInfo();
+
+    }
     function getBackup() {
         // backup panel
         const sideBarPanel = document.createElement('div');
         sideBarPanel.classList.add('sidebar-pane');
-        sideBarPanel.id = "share";
+        sideBarPanel.id = "backup";
         sideBarContent.appendChild(sideBarPanel);
 
         sideBarClose(sideBarPanel);
@@ -361,89 +444,7 @@ function getSideBarContent() {
         btnClearDissagree.innerText = chooseLanguages.tr.body.panel.backup.btn_confirm.btn_disagree;
         prompt.appendChild(btnClearDissagree);
     }
-    function getAbout() {
-        function getTitle(parent, text, date) {
-            const updateTitle = document.createElement('h3');
-            updateTitle.innerText = text;
-            parent.appendChild(updateTitle);
-
-            const updateDay = document.createElement('span');
-            updateDay.classList.add('updateday');
-            updateDay.innerText = date;
-            parent.appendChild(updateDay);
-        }
-        function getUpdateList(parent, version) {
-            const updateList = document.createElement('ul');
-            updateList.classList.add('update-list');
-            parent.appendChild(updateList);
-
-            const notes = chooseLanguages.tr.body.panel.about[version].notes;
-            for (let key in notes) {
-                if (notes.hasOwnProperty(key)) {
-                    const listItem = document.createElement('li');
-                    listItem.innerText = notes[key];
-                    listItem.classList.add('text');
-                    updateList.appendChild(listItem);
-                }
-            }
-        }
-        function getUpdate() {
-            getTitle(contentUpdate, chooseLanguages.tr.body.panel.about["v1.3.1"].title, chooseLanguages.tr.body.panel.about["v1.3.1"].release_date);
-            getUpdateList(contentUpdate, "v1.3.1");
-            getTitle(contentUpdate, chooseLanguages.tr.body.panel.about["v1.3"].title, chooseLanguages.tr.body.panel.about["v1.3"].release_date);
-            getUpdateList(contentUpdate, "v1.3");
-            getTitle(contentUpdate, chooseLanguages.tr.body.panel.about["v1.2"].title, chooseLanguages.tr.body.panel.about["v1.2"].release_date);
-            getUpdateList(contentUpdate, "v1.2");
-            getTitle(contentUpdate, chooseLanguages.tr.body.panel.about["v1.0"].title, chooseLanguages.tr.body.panel.about["v1.0"].release_date);
-            getUpdateList(contentUpdate, "v1.0");
-        }
-        function getText(parent, type, text, htmlTYPE) {
-            const element = document.createElement(htmlTYPE);
-            element.innerHTML = text;
-            switch (type) {
-                case 'text creator':
-                    element.classList.add('text','creator');
-                    break;
-                default:
-                    element.classList.add('text');
-            }
-            parent.appendChild(element);
-        }
-        function getLegalInfo() {
-            const legalInfo = document.createElement('div');
-            legalInfo.classList.add('legalinfo');
-            contentUpdate.appendChild(legalInfo);
-
-            getText(legalInfo, 'text creator', 'Kingdom Come Deliverance Haritası', 'p');
-            getText(legalInfo, 'text creator', 'RogerHN Tarafından Yaratıldı.', 'p');
-            getText(legalInfo, 'text', 'İşaretçilerle ilgili yardımlarından dolayı Talys ve POiZiE\'ye çok teşekkür ederiz.', 'p');
-            getText(legalInfo, 'text', 'Ayrıca <a class="link" href="https://www.pubgmap.io" target="_blank">pubgmap.io</a>\'dan Webdestroya\'ya işaretçi kodunu düzeltmeme yardım ettiği için çok teşekkür ederim.', 'p');
-            getText(legalInfo, 'text', 'AhmetCan IŞIK tarafından türkçeye çevirildi.', 'p');
-            getText(legalInfo, 'text', '<a class="link" href="https://www.kingdomcomerpg.com" target="_blank">Kingdom Come: Deliverance</a> logosu, simgeleri ve haritasının telif hakkı ve mülkiyeti <a class="link" href="https://warhorsestudios.cz/" target="_blank">Warhorse Studios</a>\'a aittir.', 'p');
-        }
-
-        // about panel
-        const sideBarPanel = document.createElement('div');
-        sideBarPanel.classList.add('sidebar-pane');
-        sideBarPanel.id = "share";
-        sideBarContent.appendChild(sideBarPanel);
-
-        sideBarClose(sideBarPanel);
-
-        const listTitle = document.createElement('p');
-        listTitle.classList.add('list-title');
-        listTitle.dataset.i18n = "info";
-        listTitle.innerText = chooseLanguages.tr.body.panel.about.main_title;
-        sideBarPanel.appendChild(listTitle);
-
-        const contentUpdate = document.createElement('div');
-        contentUpdate.classList.add('content','update');
-        sideBarPanel.appendChild(contentUpdate);
-
-        getUpdate();
-        getLegalInfo();
-
-    }
+    
 
     function Export() {
         getHome()
@@ -455,8 +456,8 @@ function getSideBarContent() {
     }
     Export();
 }
-function Main() {
+function SideBar() {
     getSideBarTabs();
     getSideBarContent();
 }
-Main();
+SideBar();

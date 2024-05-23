@@ -1396,5 +1396,3 @@ if (localStorage.activemarkers !== undefined) {
   };
 };
 // end toggle state
-
-document.getElementById('allmarkers').checked = false;
