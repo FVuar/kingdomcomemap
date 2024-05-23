@@ -40,6 +40,13 @@ function getSideBarContent() {
         iconLeftArrow.classList.add('left-arrow');
         sideBarClose.appendChild(iconLeftArrow);
     }
+    function getListTitle(parent, i18n, text) {
+        const listTitle = document.createElement('p');
+        listTitle.classList.add('list-title');
+        listTitle.dataset.i18n = i18n;
+        listTitle.innerText = text;
+        parent.appendChild(listTitle);
+    }
 
     function getHome() {
         // Side Bar Close
@@ -243,12 +250,7 @@ function getSideBarContent() {
         sideBarContent.appendChild(sideBarPanel);
 
         sideBarClose(sideBarPanel);
-
-        const listTitle = document.createElement('p');
-        listTitle.classList.add('list-title');
-        listTitle.dataset.i18n = "send_markers";
-        listTitle.innerText = chooseLanguages.tr.body.panel.share.main_title;
-        sideBarPanel.appendChild(listTitle);
+        getListTitle(sideBarPanel, "send_markers", chooseLanguages.tr.body.panel.share.main_title);
 
         const content = document.createElement('div');
         content.classList.add('content');
@@ -353,11 +355,7 @@ function getSideBarContent() {
             getText(legalInfo, 'text', '<a class="link" href="https://www.kingdomcomerpg.com" target="_blank">Kingdom Come: Deliverance</a> logosu, simgeleri ve haritasının telif hakkı ve mülkiyeti <a class="link" href="https://warhorsestudios.cz/" target="_blank">Warhorse Studios</a>\'a aittir.', 'p');
         }
 
-        const listTitle = document.createElement('p');
-        listTitle.classList.add('list-title');
-        listTitle.dataset.i18n = "info";
-        listTitle.innerText = chooseLanguages.tr.body.panel.about.main_title;
-        sideBarPanel.appendChild(listTitle);
+        getListTitle(sideBarPanel, "info", chooseLanguages.tr.body.panel.about.main_title);
 
         const contentUpdate = document.createElement('div');
         contentUpdate.classList.add('content','update');
@@ -375,12 +373,7 @@ function getSideBarContent() {
         sideBarContent.appendChild(sideBarPanel);
 
         sideBarClose(sideBarPanel);
-
-        const listTitle = document.createElement('p');
-        listTitle.classList.add('list-title');
-        listTitle.dataset.i18n = "ImportExportmarkers";
-        listTitle.innerText = chooseLanguages.tr.body.panel.backup.main_title;
-        sideBarPanel.appendChild(listTitle);
+        getListTitle(sideBarPanel, "ImportExportmarkers", chooseLanguages.tr.body.panel.backup.main_title);
 
         const content = document.createElement('div');
         content.classList.add('content', 'mtop15px');
@@ -453,7 +446,7 @@ function getSideBarContent() {
         btnClearDissagree.innerText = chooseLanguages.tr.body.panel.backup.btn_confirm.btn_disagree;
         prompt.appendChild(btnClearDissagree);
     }
-    
+
 
     function Export() {
         getHome()
