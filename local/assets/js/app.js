@@ -472,6 +472,9 @@ function getSideBarContent() {
             select.value = "tr";
             select.addEventListener('change', () => {
                 let path = window.location.origin;
+                if (path === "https://fvuar.github.io") {
+                    path += "/kingdomcomemap";
+                }
                 switch (select.value) {
                     case 'tr':
                         path += '/tr';
