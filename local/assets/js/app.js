@@ -7,7 +7,8 @@ let cez = {
         {href: "#about", title: chooseLanguages.tr.body.tablist.about, icon: "about"},
         {href: "#backup", title: chooseLanguages.tr.body.tablist.backup, icon: "inventory"}
     ],
-    version: "1.3.1"
+    version: "1.3.1",
+    languages: ['tr', 'en']
 }
 
 function getSideBarTabs() {
@@ -445,6 +446,52 @@ function getSideBarContent() {
         btnClearDissagree.dataset.i18n = "no";
         btnClearDissagree.innerText = chooseLanguages.tr.body.panel.backup.btn_confirm.btn_disagree;
         prompt.appendChild(btnClearDissagree);
+
+        function getLanguage(parent) {
+            const container = document.createElement('div');
+            container.classList.add('mtop15px');
+            container.style.display = "flex";
+            container.style.alignItems = "center";
+            parent.appendChild(container);
+
+            const listTitle = document.createElement('p');
+            listTitle.classList.add('list-title');
+            listTitle.dataset.i18n = "SelectLanguage";
+            listTitle.innerText = "Dili Seç : ";
+            container.appendChild(listTitle);
+
+            const content = document.createElement('div');
+            content.classList.add('content');
+            container.appendChild(content);
+
+            const select = document.createElement('select');
+            select.id = "changeLanguage";
+            select.classList.add('text')
+            select.style.backgroundColor = "#ECD57CFF";
+            select.style.width = "100%";
+            select.value = "tr";
+            select.addEventListener('change', () => {
+                let path = window.location.origin;
+                switch (select.value) {
+                    case 'tr':
+                        path += '/tr';
+                        break;
+                    default:
+                        path = "https://kingdomcomemap.github.io";
+                        break;
+                }
+                window.location.href = path;
+            });
+            content.appendChild(select);
+
+            cez.languages.forEach(lang => {
+                const option = document.createElement('option');
+                option.value = lang;
+                option.innerText = lang.toUpperCase();
+                select.appendChild(option);
+            })
+        }
+        getLanguage(sideBarPanel);
     }
 
 
