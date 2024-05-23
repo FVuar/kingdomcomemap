@@ -150,6 +150,7 @@ function getSideBarContent() {
                         checkbox.type = 'checkbox';
                         checkbox.id = key;
                         checkbox.className = 'cc';
+                        checkbox.checked = false;
                         li.appendChild(checkbox);
 
                         // Create the label element
@@ -177,6 +178,7 @@ function getSideBarContent() {
                     checkbox.type = 'checkbox';
                     checkbox.id = "textmarkers";
                     checkbox.className = 'cc';
+                    checkbox.checked = false;
                     li2.appendChild(checkbox);
 
                     // Create the label element
@@ -203,6 +205,7 @@ function getSideBarContent() {
                     checkbox.type = 'checkbox';
                     checkbox.id = "bed";
                     checkbox.className = 'cc';
+                    checkbox.checked = false;
                     li2.appendChild(checkbox);
 
                     // Create the label element
