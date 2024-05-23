@@ -6,7 +6,8 @@ let cez = {
         {href: "#share", title: chooseLanguages.tr.body.tablist.share, icon: "share"},
         {href: "#about", title: chooseLanguages.tr.body.tablist.about, icon: "about"},
         {href: "#backup", title: chooseLanguages.tr.body.tablist.backup, icon: "inventory"}
-    ]
+    ],
+    version: "1.3.1"
 }
 
 function getSideBarTabs() {
@@ -60,11 +61,19 @@ function getSideBarContent() {
         logoMenu.alt = "Kingdom Come Deliverance için İnteraktif Harita";
         logoContainer.appendChild(logoMenu);
 
+        getVersion(logoContainer);
+
         // Side Bar Content
         const content = document.createElement('div');
         content.classList.add('content');
         sideBarPanel.appendChild(content);
 
+        function getVersion(parent) {
+            const version = document.createElement('p');
+            version.classList.add('version');
+            version.innerText = cez.version;
+            parent.appendChild(version);
+        }
         function getUserListMarkers() {
             // content>userList
             const userList = document.createElement('ul');
