@@ -5,7 +5,7 @@ let cez = {
         {href: "#home", title: chooseLanguages.tr.body.tablist.home, icon: "home"},
         {href: "#share", title: chooseLanguages.tr.body.tablist.share, icon: "share"},
         {href: "#about", title: chooseLanguages.tr.body.tablist.about, icon: "about"},
-        {href: "#backup", title: chooseLanguages.tr.body.tablist.backup, icon: "inventory"}
+        {href: "#backup", title: "Ayarlar", icon: "inventory"}
     ],
     version: "1.3.1",
     languages: ['tr', 'en']
