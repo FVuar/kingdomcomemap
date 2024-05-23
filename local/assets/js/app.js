@@ -115,7 +115,7 @@ function getSideBarContent() {
             allMarkers.type = "checkbox";
             allMarkers.id = "allmarkers";
             allMarkers.classList.add('cc');
-            allMarkers.checked = true;
+            allMarkers.checked = false;
             li2.appendChild(allMarkers);
 
             // content>userList>li>label
