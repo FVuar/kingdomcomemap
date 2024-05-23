@@ -79,7 +79,7 @@ function getSideBarContent() {
         function getVersion(parent) {
             const version = document.createElement('p');
             version.classList.add('version');
-            version.innerText = cez.version;
+            version.innerText = 'v. '+cez.version;
             parent.appendChild(version);
         }
         function getUserListMarkers() {
