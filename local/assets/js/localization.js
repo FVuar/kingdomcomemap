@@ -404,6 +404,10 @@ var get = {
                     "en": "No",
                     "tr": "Hayır"
                 }
+            },
+            "langBar": {
+                "en": "Select Language",
+                "tr": "Dili Seç"
             }
         },
         "about": {
