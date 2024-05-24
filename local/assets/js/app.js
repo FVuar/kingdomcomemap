@@ -43,7 +43,7 @@ function getSideBarTabs() {
 
     GetFlag(ul, localStorage.getItem('lang'));
 
-    cez.tablist.forEach(item => {
+    cez.tablist.forEach((item) => {
         const li = document.createElement('li');
         li.innerHTML = `<a href="${item.href}" role="tab" title="${item.title}"><i class="${item.icon}"></i></a>`;
         ul.appendChild(li);
@@ -171,34 +171,39 @@ function getSideBarContent() {
             markersList.classList.add('markers-list');
             content.appendChild(markersList);
 
+            let index = 0;
             for (let key in get.markers) {
                 if (get.markers.hasOwnProperty(key)) {
-                    // Create a list item
-                    const li = document.createElement('li');
+                    index++;
+                    if (index > 2) {
+                        // Create a list item
+                        const li = document.createElement('li');
 
-                    // Create the icon element
-                    const icon = document.createElement('i');
-                    icon.className = get.markers[key].icon; // Add the class based on the key
-                    li.appendChild(icon);
+                        // Create the icon element
+                        const icon = document.createElement('i');
+                        icon.className = get.markers[key].icon; // Add the class based on the key
+                        li.appendChild(icon);
 
-                    // Create the checkbox element
-                    const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox';
-                    checkbox.id = get.markers[key].id;
-                    checkbox.className = 'cc';
-                    checkbox.checked = false;
-                    li.appendChild(checkbox);
+                        // Create the checkbox element
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkbox.id = get.markers[key].id;
+                        checkbox.className = 'cc';
+                        checkbox.checked = false;
+                        li.appendChild(checkbox);
 
-                    // Create the label element
-                    const label = document.createElement('label');
-                    label.htmlFor = checkbox.id;
-                    label.className = 'cl';
-                    label.dataset.i18n = get.markers[key].i18n;
-                    label.innerText = get.markers[key][currentLang]; // Set the text content to the value
-                    li.appendChild(label);
+                        // Create the label element
+                        const label = document.createElement('label');
+                        label.htmlFor = checkbox.id;
+                        label.className = 'cl';
+                        label.dataset.i18n = get.markers[key].i18n;
+                        label.innerText = get.markers[key][currentLang]; // Set the text content to the value
+                        li.appendChild(label);
 
-                    // Append the list item to the marker list
-                    markersList.appendChild(li);
+                        // Append the list item to the marker list
+                        markersList.appendChild(li);
+                    }
+                    console.log(index);
                 }
             }
         }

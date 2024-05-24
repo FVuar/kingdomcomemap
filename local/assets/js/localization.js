@@ -362,12 +362,12 @@ var get = {
     "panel": {
         "share": {
             "main_title": {
-                "en": "Save Markers",
-                "tr": "İşaretçileri Kaydet"
+                "en": "Share Markers",
+                "tr": "İşaretlerini Paylaş"
             },
             "send_discord": {
                 "en": "You can send your markers to our Discord server. We will update the markers daily to make this map as comprehensive as possible. Also, new features are on the way!",
-                "tr": "İşaretçilerinizi Discord sunucumuza gönderebilirsiniz. Bu haritayı mümkün olduğunca kapsamlı hale getirmek için işaretçileri günlük olarak güncelleyeceğiz. Ayrıca yeni özellikler yolda!"
+                "tr": "İşaretlerinizi Discord sunucumuza gönderebilirsiniz. Bu haritayı mümkün olduğunca kapsamlı hale getirmek için işaretçileri günlük olarak güncelleyeceğiz. Ayrıca yeni özellikler yolda!"
             },
             "send_reddit": {
                 "en": "Or you can send them to our Reddit thread:",
