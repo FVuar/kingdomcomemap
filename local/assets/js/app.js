@@ -1,14 +1,22 @@
+if (localStorage.getItem('lang')) {
+    console.log("lang adında bir item var")
+} else {
+    localStorage.setItem('lang', 'tr');
+}
 const sideBar = document.getElementById('sidebar');
-let trMarkersName = chooseLanguages.tr.body.markerNames;
+let currentLang = localStorage.getItem("lang");
+function GetTablist(name, lang) {
+    return get.tablist[name][lang];
+}
 let cez = {
     tablist: [
-        {href: "#home", title: chooseLanguages.tr.body.tablist.home, icon: "home"},
-        {href: "#share", title: chooseLanguages.tr.body.tablist.share, icon: "share"},
-        {href: "#about", title: chooseLanguages.tr.body.tablist.about, icon: "about"},
-        {href: "#backup", title: "Ayarlar", icon: "inventory"}
+        {href: "#home", title: GetTablist("home", currentLang), icon: "home"},
+        {href: "#share", title: GetTablist("share", currentLang), icon: "share"},
+        {href: "#about", title: GetTablist("about", currentLang), icon: "about"},
+        {href: "#backup", title: GetTablist("backup", currentLang), icon: "inventory"}
     ],
     version: "1.3.1",
-    languages: ['tr', 'en']
+    languages: [localStorage.getItem('lang') === "en" ? "en" : "tr", localStorage.getItem('lang') === "en" ? "tr" : "en"]
 }
 
 function getSideBarTabs() {
@@ -94,13 +102,13 @@ function getSideBarContent() {
 
             // content>userList>li>i
             const usrLstIcon = document.createElement('i');
-            usrLstIcon.classList.add('player');
+            usrLstIcon.classList.add(get.markers.my_markers.icon);
             li.appendChild(usrLstIcon);
 
             // content>userList>li>input
             const userMakers = document.createElement('input');
             userMakers.type = "checkbox";
-            userMakers.id = "usermakers";
+            userMakers.id = get.markers.my_markers.id;
             userMakers.classList.add('cc');
             userMakers.checked = true;
             li.appendChild(userMakers);
@@ -109,8 +117,8 @@ function getSideBarContent() {
             const userLabel = document.createElement('label');
             userLabel.htmlFor = userMakers.id;
             userLabel.classList.add('cl');
-            userLabel.dataset.i18n = "Mymarkers";
-            userLabel.innerText = trMarkersName.my_markers;
+            userLabel.dataset.i18n = get.markers.my_markers.i18n;
+            userLabel.innerText = get.markers.my_markers[currentLang];
             li.appendChild(userLabel);
         }
         function getAllMarkersChoice() {
@@ -124,13 +132,13 @@ function getSideBarContent() {
 
             // content>userList>li>i
             const Icon = document.createElement('i');
-            Icon.classList.add('allmarkers');
+            Icon.classList.add(get.markers.all_markers.icon);
             li2.appendChild(Icon);
 
             // content>userList>li>input
             const allMarkers = document.createElement('input');
             allMarkers.type = "checkbox";
-            allMarkers.id = "allmarkers";
+            allMarkers.id = get.markers.all_markers.id;
             allMarkers.classList.add('cc');
             allMarkers.checked = false;
             li2.appendChild(allMarkers);
@@ -139,8 +147,8 @@ function getSideBarContent() {
             const alLabel = document.createElement('label');
             alLabel.htmlFor = allMarkers.id;
             alLabel.classList.add('cl');
-            alLabel.dataset.i18n = "Allmarkers";
-            alLabel.innerText = trMarkersName.all_markers;
+            alLabel.dataset.i18n = get.markers.all_markers.i18n;
+            alLabel.innerText = get.markers.all_markers[currentLang];
             li2.appendChild(alLabel);
         }
         function getMarkers() {
@@ -149,92 +157,34 @@ function getSideBarContent() {
             markersList.classList.add('markers-list');
             content.appendChild(markersList);
 
-            for (let key in trMarkersName) {
-                if (trMarkersName.hasOwnProperty(key)) {
-                    if (key === 'my_markers' || key === 'all_markers' || key === 'cities_names' || key === "bed") {
-                        console.log('no');
-                    } else {
-                        // Create a list item
-                        const li = document.createElement('li');
-
-                        // Create the icon element
-                        const icon = document.createElement('i');
-                        icon.className = key; // Add the class based on the key
-                        li.appendChild(icon);
-
-                        // Create the checkbox element
-                        const checkbox = document.createElement('input');
-                        checkbox.type = 'checkbox';
-                        checkbox.id = key;
-                        checkbox.className = 'cc';
-                        checkbox.checked = false;
-                        li.appendChild(checkbox);
-
-                        // Create the label element
-                        const label = document.createElement('label');
-                        label.htmlFor = key;
-                        label.className = 'cl';
-                        label.setAttribute('data-i18n', key);
-                        label.textContent = trMarkersName[key]; // Set the text content to the value
-                        li.appendChild(label);
-
-                        // Append the list item to the marker list
-                        markersList.appendChild(li);
-                    }
-                }
-                if(key === 'cities_names') {
-                    const li2 = document.createElement('li');
+            for (let key in get.markers) {
+                if (get.markers.hasOwnProperty(key)) {
+                    // Create a list item
+                    const li = document.createElement('li');
 
                     // Create the icon element
                     const icon = document.createElement('i');
-                    icon.className = "cities"; // Add the class based on the key
-                    li2.appendChild(icon);
+                    icon.className = get.markers[key].icon; // Add the class based on the key
+                    li.appendChild(icon);
 
                     // Create the checkbox element
                     const checkbox = document.createElement('input');
                     checkbox.type = 'checkbox';
-                    checkbox.id = "textmarkers";
+                    checkbox.id = get.markers[key].id;
                     checkbox.className = 'cc';
                     checkbox.checked = false;
-                    li2.appendChild(checkbox);
+                    li.appendChild(checkbox);
 
                     // Create the label element
                     const label = document.createElement('label');
-                    label.htmlFor = "textmarkers";
+                    label.htmlFor = checkbox.id;
                     label.className = 'cl';
-                    label.dataset.i18n = "citiesNames";
-                    label.innerText = trMarkersName.cities_names;
-                    li2.appendChild(label);
+                    label.dataset.i18n = get.markers[key].i18n;
+                    label.innerText = get.markers[key][currentLang]; // Set the text content to the value
+                    li.appendChild(label);
 
                     // Append the list item to the marker list
-                    markersList.appendChild(li2);
-                }
-                if(key === 'bed') {
-                    const li2 = document.createElement('li');
-
-                    // Create the icon element
-                    const icon = document.createElement('i');
-                    icon.className = "your_bed"; // Add the class based on the key
-                    li2.appendChild(icon);
-
-                    // Create the checkbox element
-                    const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox';
-                    checkbox.id = "bed";
-                    checkbox.className = 'cc';
-                    checkbox.checked = false;
-                    li2.appendChild(checkbox);
-
-                    // Create the label element
-                    const label = document.createElement('label');
-                    label.htmlFor = "bed";
-                    label.className = 'cl';
-                    label.dataset.i18n = "bed";
-                    label.innerText = trMarkersName.bed;
-                    li2.appendChild(label);
-
-                    // Append the list item to the marker list
-                    markersList.appendChild(li2);
+                    markersList.appendChild(li);
                 }
             }
         }
@@ -247,11 +197,11 @@ function getSideBarContent() {
         // share panel
         const sideBarPanel = document.createElement('div');
         sideBarPanel.classList.add('sidebar-pane');
-        sideBarPanel.id = "share";
+        sideBarPanel.id = get.tablist.share.id;
         sideBarContent.appendChild(sideBarPanel);
 
         sideBarClose(sideBarPanel);
-        getListTitle(sideBarPanel, "send_markers", chooseLanguages.tr.body.panel.share.main_title);
+        getListTitle(sideBarPanel, "send_markers", get.panel.share.main_title[currentLang]);
 
         const content = document.createElement('div');
         content.classList.add('content');
@@ -259,7 +209,7 @@ function getSideBarContent() {
 
         const textDiscord = document.createElement('p');
         textDiscord.classList.add('text');
-        textDiscord.innerText = chooseLanguages.tr.body.panel.share.send_discord;
+        textDiscord.innerText = get.panel.share.send_discord[currentLang];
         content.appendChild(textDiscord);
 
         const textDiscordLink = document.createElement('a');
@@ -274,7 +224,7 @@ function getSideBarContent() {
 
         const textReddit = document.createElement('p');
         textReddit.classList.add('text');
-        textReddit.innerText = chooseLanguages.tr.body.panel.share.send_reddit;
+        textReddit.innerText = get.panel.share.send_reddit[currentLang];
         content.appendChild(textReddit);
 
         const textRedditLink = document.createElement('a');
@@ -311,24 +261,24 @@ function getSideBarContent() {
             updateList.classList.add('update-list');
             parent.appendChild(updateList);
 
-            const notes = chooseLanguages.tr.body.panel.about[version].notes;
+            const notes = get.panel.about[version].notes;
             for (let key in notes) {
                 if (notes.hasOwnProperty(key)) {
                     const listItem = document.createElement('li');
-                    listItem.innerText = notes[key];
+                    listItem.innerText = notes[key][currentLang];
                     listItem.classList.add('text');
                     updateList.appendChild(listItem);
                 }
             }
         }
         function getUpdate() {
-            getTitle(contentUpdate, chooseLanguages.tr.body.panel.about["v1.3.1"].title, chooseLanguages.tr.body.panel.about["v1.3.1"].release_date);
+            getTitle(contentUpdate, get.panel.about["v1.3.1"].title[currentLang], get.panel.about["v1.3.1"].release_date);
             getUpdateList(contentUpdate, "v1.3.1");
-            getTitle(contentUpdate, chooseLanguages.tr.body.panel.about["v1.3"].title, chooseLanguages.tr.body.panel.about["v1.3"].release_date);
+            getTitle(contentUpdate, get.panel.about["v1.3"].title[currentLang], get.panel.about["v1.3"].release_date);
             getUpdateList(contentUpdate, "v1.3");
-            getTitle(contentUpdate, chooseLanguages.tr.body.panel.about["v1.2"].title, chooseLanguages.tr.body.panel.about["v1.2"].release_date);
+            getTitle(contentUpdate, get.panel.about["v1.2"].title[currentLang], get.panel.about["v1.2"].release_date);
             getUpdateList(contentUpdate, "v1.2");
-            getTitle(contentUpdate, chooseLanguages.tr.body.panel.about["v1.0"].title, chooseLanguages.tr.body.panel.about["v1.0"].release_date);
+            getTitle(contentUpdate, get.panel.about["v1.0"].title[currentLang], get.panel.about["v1.0"].release_date);
             getUpdateList(contentUpdate, "v1.0");
         }
         function getText(parent, type, text, htmlTYPE) {
@@ -356,7 +306,7 @@ function getSideBarContent() {
             getText(legalInfo, 'text', '<a class="link" href="https://www.kingdomcomerpg.com" target="_blank">Kingdom Come: Deliverance</a> logosu, simgeleri ve haritasının telif hakkı ve mülkiyeti <a class="link" href="https://warhorsestudios.cz/" target="_blank">Warhorse Studios</a>\'a aittir.', 'p');
         }
 
-        getListTitle(sideBarPanel, "info", chooseLanguages.tr.body.panel.about.main_title);
+        getListTitle(sideBarPanel, "info", get.panel.about.main_title[currentLang]);
 
         const contentUpdate = document.createElement('div');
         contentUpdate.classList.add('content','update');
@@ -374,7 +324,7 @@ function getSideBarContent() {
         sideBarContent.appendChild(sideBarPanel);
 
         sideBarClose(sideBarPanel);
-        getListTitle(sideBarPanel, "ImportExportmarkers", chooseLanguages.tr.body.panel.backup.main_title);
+        getListTitle(sideBarPanel, "ImportExportmarkers", get.panel.backup.main_title[currentLang]);
 
         const content = document.createElement('div');
         content.classList.add('content', 'mtop15px');
@@ -391,7 +341,7 @@ function getSideBarContent() {
 
         const btnExport = document.createElement('span');
         btnExport.classList.add('btn-text');
-        btnExport.innerText = chooseLanguages.tr.body.panel.backup.btn_export;
+        btnExport.innerText = get.panel.backup.btn_export[currentLang];
         btnBackUpls.appendChild(btnExport);
 
         const btnRestorels = document.createElement('a');
@@ -405,7 +355,7 @@ function getSideBarContent() {
 
         const btnImport = document.createElement('span');
         btnImport.classList.add('btn-text');
-        btnImport.innerText = chooseLanguages.tr.body.panel.backup.btn_import;
+        btnImport.innerText = get.panel.backup.btn_import[currentLang];
         btnRestorels.appendChild(btnImport);
 
 
@@ -424,7 +374,7 @@ function getSideBarContent() {
 
         const btnClear = document.createElement('span');
         btnClear.classList.add('btn-text');
-        btnClear.innerText = chooseLanguages.tr.body.panel.backup.btn_clear;
+        btnClear.innerText = get.panel.backup.btn_clear[currentLang];
         btnClearls.appendChild(btnClear);
 
         const prompt = document.createElement('div');
@@ -432,19 +382,19 @@ function getSideBarContent() {
         dialog.appendChild(prompt);
 
         const text = document.createElement('p');
-        text.innerText = chooseLanguages.tr.body.panel.backup.btn_confirm.title;
+        text.innerText = get.panel.backup.btn_confirm.title[currentLang];
         prompt.appendChild(text);
 
         const btnClearAccept = document.createElement('button');
         btnClearAccept.classList.add('clearyes');
         btnClearAccept.dataset.i18n = "yes";
-        btnClearAccept.innerText = chooseLanguages.tr.body.panel.backup.btn_confirm.btn_accept;
+        btnClearAccept.innerText = get.panel.backup.btn_confirm.btn_accept[currentLang];
         prompt.appendChild(btnClearAccept);
 
         const btnClearDissagree = document.createElement('button');
         btnClearDissagree.classList.add('clearno');
         btnClearDissagree.dataset.i18n = "no";
-        btnClearDissagree.innerText = chooseLanguages.tr.body.panel.backup.btn_confirm.btn_disagree;
+        btnClearDissagree.innerText = get.panel.backup.btn_confirm.btn_disagree[currentLang];
         prompt.appendChild(btnClearDissagree);
 
         function getLanguage(parent) {
@@ -469,25 +419,14 @@ function getSideBarContent() {
             select.classList.add('text')
             select.style.backgroundColor = "#ECD57CFF";
             select.style.width = "100%";
-            select.value = "tr";
+            select.value = localStorage.getItem('lang');
             select.addEventListener('change', () => {
-                let path = window.location.origin;
-                if (path === "https://fvuar.github.io") {
-                    path += "/kingdomcomemap";
-                }
-                switch (select.value) {
-                    case 'tr':
-                        path += '/tr';
-                        break;
-                    default:
-                        path = "https://kingdomcomemap.github.io";
-                        break;
-                }
-                window.location.href = path;
+                localStorage.setItem("lang", select.value);
+                document.location.reload();
             });
             content.appendChild(select);
 
-            cez.languages.forEach(lang => {
+            cez.languages.forEach((lang, index) => {
                 const option = document.createElement('option');
                 option.value = lang;
                 option.innerText = lang.toUpperCase();

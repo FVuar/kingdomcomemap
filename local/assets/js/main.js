@@ -210,7 +210,7 @@ for (let  i = 0; i < markers.length; i++) {
 	markerUrl = encodeURI(markerUrl);
 
   // Add the marker
-  let  marker = L.marker([x, y], {icon: getIcon(i),title: markers[i].group}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='copylink'>Copy link</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[markers[i].group]);
+  let  marker = L.marker([x, y], {icon: getIcon(i),title: markers[i].group}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='copylink'>Linki Kopyala</span><span class='copiedmsg hide'>Kopyalandı</span></button>").addTo(layerGroups[markers[i].group]);
 	globalMarkers.push(marker);
 }
 
@@ -249,7 +249,7 @@ for (let  i = 0; i < usr_markers.length; i++) {
   if (imarkers.req != undefined) {
   imarkers.req = (imarkers.req == undefined) ? "" : imarkers.req;
   imarkers.level = (imarkers.level == undefined) ? "" : imarkers.level;
-    req = '<p class="req" data-i18n="req">Requirements:</p><ul class="ilist"><li><i class="'+imarkers.req+'"></i><span class="iname" data-i18n="'+imarkers.req+'">'+imarkers.req.replace(/_/gi, " ")+'</span><span class="ilevel '+imarkers.level+'" data-i18n="'+imarkers.level+'">'+imarkers.level.replace(/_/gi, " ")+'</span></li>';
+    req = '<p class="req" data-i18n="req">Gereksinimler:</p><ul class="ilist"><li><i class="'+imarkers.req+'"></i><span class="iname" data-i18n="'+imarkers.req+'">'+imarkers.req.replace(/_/gi, " ")+'</span><span class="ilevel '+imarkers.level+'" data-i18n="'+imarkers.level+'">'+imarkers.level.replace(/_/gi, " ")+'</span></li>';
   }
   let  ilist = "";
   for (let  c in imarkers.items) {
@@ -263,7 +263,7 @@ for (let  i = 0; i < usr_markers.length; i++) {
 	markerUrl = encodeURI(markerUrl);
 
   // Add the marker
-  let  marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.name}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
+  let  marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.name}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Paylaş</span><span class='copiedmsg hide'>Kopyalandı</span></button>").addTo(layerGroups[imarkers.group]);
 	globalMarkers.push(marker);
 }
 
