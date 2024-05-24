@@ -317,12 +317,12 @@ function getSideBarContent() {
             legalInfo.classList.add('legalinfo');
             contentUpdate.appendChild(legalInfo);
 
-            getText(legalInfo, 'text creator', 'Kingdom Come Deliverance Haritası', 'p');
-            getText(legalInfo, 'text creator', 'RogerHN Tarafından Yaratıldı.', 'p');
-            getText(legalInfo, 'text', 'İşaretçilerle ilgili yardımlarından dolayı Talys ve POiZiE\'ye çok teşekkür ederiz.', 'p');
-            getText(legalInfo, 'text', 'Ayrıca <a class="link" href="https://www.pubgmap.io" target="_blank">pubgmap.io</a>\'dan Webdestroya\'ya işaretçi kodunu düzeltmeme yardım ettiği için çok teşekkür ederim.', 'p');
-            getText(legalInfo, 'text', 'AhmetCan IŞIK tarafından türkçeye çevirildi.', 'p');
-            getText(legalInfo, 'text', '<a class="link" href="https://www.kingdomcomerpg.com" target="_blank">Kingdom Come: Deliverance</a> logosu, simgeleri ve haritasının telif hakkı ve mülkiyeti <a class="link" href="https://warhorsestudios.cz/" target="_blank">Warhorse Studios</a>\'a aittir.', 'p');
+            getText(legalInfo, 'text creator', get.panel.about.creadits.main_title[currentLang] , 'p');
+            getText(legalInfo, 'text creator', get.panel.about.creadits.author[currentLang], 'p');
+            getText(legalInfo, 'text', get.panel.about.creadits.thanks["0"][currentLang], 'p');
+            getText(legalInfo, 'text', get.panel.about.creadits.thanks["1"][currentLang], 'p');
+            getText(legalInfo, 'text', get.panel.about.creadits.translator[currentLang], 'p');
+            getText(legalInfo, 'text', get.panel.about.creadits.copyright[currentLang], 'p');
         }
 
         getListTitle(sideBarPanel, "info", get.panel.about.main_title[currentLang]);

@@ -421,8 +421,8 @@ var get = {
                     "tr": "RogerHN Tarafından Yaratıldı"
                 },
                 "translator": {
-                    "en": "Translated into Turkish by AhmetCan IŞIK",
-                    "tr": "AhmetCan IŞIK tarafından türkçeye çevirildi."
+                    "en": "I would like to thank <a class='link' href='https://ahmetcanisik.com' target='_blank'>Ahmet Can IŞIK</a> for translating the project into Turkish.",
+                    "tr": "<a class='link' href='https://ahmetcanisik.com' target='_blank'>Ahmet Can IŞIK</a> tarafından türkçeye çevirildi."
                 },
                 "thanks": {
                     "0": {
@@ -430,13 +430,13 @@ var get = {
                         "tr": "İşaretçilerle ilgili yardımlarından dolayı Talys ve POiZiE'ye çok teşekkür ederiz."
                     },
                     "1": {
-                        "en": "Also, a big thanks to Webdestroya from pubgmap.io for helping me fix the marker code.",
-                        "tr": "Ayrıca pubgmap.io'dan Webdestroya'ya işaretçi kodunu düzeltmeme yardım ettiği için çok teşekkür ederim."
+                        "en": "Also, a big thanks to Webdestroya from <a class=\"link\" href=\"https://www.pubgmap.io\" target=\"_blank\">pubgmap.io</a> for helping me fix the marker code.",
+                        "tr": 'Ayrıca <a class="link" href="https://www.pubgmap.io" target="_blank">pubgmap.io</a>\'dan Webdestroya\'ya işaretçi kodunu düzeltmeme yardım ettiği için çok teşekkür ederim.'
                     }
                 },
                 "copyright": {
-                    "en": "Kingdom Come: Deliverance logo, icons, and map are the copyright and property of Warhorse Studios.",
-                    "tr": "Kingdom Come: Deliverance logosu, simgeleri ve haritasının telif hakkı ve mülkiyeti Warhorse Studios'a aittir."
+                    "en": "<a class=\"link\" href=\"https://www.kingdomcomerpg.com\" target=\"_blank\">Kingdom Come: Deliverance</a> logo, icons, and map are the copyright and property of <a class=\"link\" href=\"https://warhorsestudios.cz/\" target=\"_blank\">Warhorse Studios</a>.",
+                    "tr": "<a class=\"link\" href=\"https://www.kingdomcomerpg.com\" target=\"_blank\">Kingdom Come: Deliverance</a> logosu, simgeleri ve haritasının telif hakkı ve mülkiyeti <a class=\"link\" href=\"https://warhorsestudios.cz/\" target=\"_blank\">Warhorse Studios</a>\'a aittir."
                 }
             },
             "v1.3.1": {
