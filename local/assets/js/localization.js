@@ -554,3 +554,4 @@ var get = {
         }
     }
 }
+"+get.markers.armourer[cl]+"
