@@ -9,7 +9,7 @@ var get = {
             "tr": "Kingdom Come Deliverance için İnteraktif Harita"
         },
         "author": {
-            "en": "RogerHN",
+            "en": "Roger Nobrega",
             "tr": "ahmetcanisik"
         }
     },

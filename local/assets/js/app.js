@@ -1,10 +1,23 @@
 if (localStorage.getItem('lang')) {
-    console.log("lang adında bir item var")
+    console.warn("lang already exists");
 } else {
     localStorage.setItem('lang', 'tr');
 }
 const sideBar = document.getElementById('sidebar');
 let currentLang = localStorage.getItem("lang");
+function getMeta() {
+    const title = document.querySelector('title');
+    title.innerText = get.meta.title[currentLang];
+
+    const description = document.querySelector('meta[name="description"]');
+    description.content = get.meta.description[currentLang];
+
+    const author = document.querySelector('meta[name="author"]');
+    author.content = get.meta.author[currentLang];
+
+    const html = document.querySelector('html');
+    html.lang = currentLang;
+}
 function goBackup() {
     const liElements = document.querySelectorAll('.sidebar-tabs ul li');
     const siPane = document.querySelectorAll('.sidebar-pane');
@@ -479,8 +492,10 @@ function getSideBarContent() {
     }
     Export();
 }
-function SideBar() {
+function getSideBar() {
+    
     getSideBarTabs();
     getSideBarContent();
 }
-SideBar();
+getMeta();
+getSideBar();
