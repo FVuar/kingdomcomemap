@@ -10,7 +10,7 @@ var get = {
         },
         "author": {
             "en": "Roger Nobrega",
-            "tr": "ahmetcanisik"
+            "tr": "Roger Nobrega"
         }
     },
     "tablist": {
@@ -443,114 +443,158 @@ var get = {
                     "tr": "<a class=\"link\" href=\"https://www.kingdomcomerpg.com\" target=\"_blank\">Kingdom Come: Deliverance</a> logosu, simgeleri ve haritasının telif hakkı ve mülkiyeti <a class=\"link\" href=\"https://warhorsestudios.cz/\" target=\"_blank\">Warhorse Studios</a>\'a aittir."
                 }
             },
-            "v1.3.1": {
-                "title": {
-                    "en": "Update 1.3.1",
-                    "tr": "Güncelleme 1.3.1"
+            "update": [
+                {
+                    "v": "1.3.2",
+                    "title": {
+                        "en": "Update 1.3.2",
+                        "tr": "Güncelleme 1.3.2"
+                    },
+                    "release_date": "10/06/2024",
+                    "notes": [
+                        {
+                            "id": 0,
+                            "en": "A small infrastructure has been created to translate the project into other languages.",
+                            "tr": "Projeyi dillere çevirmek için ufak bir altyapı oluşturuldu."
+                        },
+                        {
+                            "id": 1,
+                            "en": "Turkish language added.",
+                            "tr": "Türkçe dili eklendi."
+                        }
+                    ]
                 },
-                "release_date": "15/03/2018",
-                "notes": {
-                    "0": {
-                        "en": "Added shareable markers.",
-                        "tr": "Paylaşılabilir işaretçiler eklendi."
+                {
+                    "v": "1.3.1",
+                    "title": {
+                        "en": "Update 1.3.1",
+                        "tr": "Güncelleme 1.3.1"
                     },
-                    "1": {
-                        "en": "Now all map markers have a link that will direct you to them when visited.",
-                        "tr": "Artık tüm harita işaretçilerinin, ziyaret edildiğinde onlara yönlendirecek bir bağlantısı var."
-                    },
-                    "2": {
-                        "en": "Now you can share the markers you added. Just add a marker to the map and copy the marker link.",
-                        "tr": "Artık eklediğiniz işaretçileri paylaşabilirsiniz, haritaya bir işaretçi ekleyip işaretçi bağlantısını kopyalamanız yeterli."
-                    },
-                    "3": {
-                        "en": "Markers shared with you can be added to your markers. Just click Edit and save.",
-                        "tr": "Sizinle paylaşılan işaretçiler, işaretçilerinize eklenebilir. Düzenle'yi tıklayıp kaydetmeniz yeterli."
-                    }
-                }
-            },
-            "v1.3": {
-                "title": {
-                    "en": "Update 1.3",
-                    "tr": "Güncelleme 1.3"
+                    "release_date": "15/03/2018",
+                    "notes": [
+                        {
+                            "id": 0,
+                            "en": "Added shareable markers.",
+                            "tr": "Paylaşılabilir işaretçiler eklendi."
+                        },
+                        {
+                            "id": 1,
+                            "en": "Now all map markers have a link that will direct you to them when visited.",
+                            "tr": "Artık tüm harita işaretçilerinin, ziyaret edildiğinde onlara yönlendirecek bir bağlantısı var."
+                        },
+                        {
+                            "id": 2,
+                            "en": "Now you can share the markers you added. Just add a marker to the map and copy the marker link.",
+                            "tr": "Artık eklediğiniz işaretçileri paylaşabilirsiniz, haritaya bir işaretçi ekleyip işaretçi bağlantısını kopyalamanız yeterli."
+                        },
+                        {
+                            "id": 3,
+                            "en": "Markers shared with you can be added to your markers. Just click Edit and save.",
+                            "tr": "Sizinle paylaşılan işaretçiler, işaretçilerinize eklenebilir. Düzenle'yi tıklayıp kaydetmeniz yeterli."
+                        }
+                    ]
                 },
-                "release_date": "11/03/2018",
-                "notes": {
-                    "0": {
-                        "en": "Map resolution changed to 8192px.",
-                        "tr": "Harita çözünürlüğü 8192px olarak değiştirildi."
+                {
+                    "v": "1.3",
+                    "title": {
+                        "en": "Update 1.3",
+                        "tr": "Güncelleme 1.3"
                     },
-                    "1": {
-                        "en": "Map coordinates now match in-game coordinates.",
-                        "tr": "Harita koordinatları artık oyun içi koordinatlarla eşleşiyor."
-                    },
-                    "2": {
-                        "en": "If you have markers with the previous coordinate system on the map, they will be automatically converted to the new one.",
-                        "tr": "Haritada önceki koordinat sistemiyle işaretleyicileriniz varsa, bunlar otomatik olarak yenisine dönüştürülecektir."
-                    },
-                    "3": {
-                        "en": "New option to import/export and clear the added markers. (Fourth tab on the left menu).",
-                        "tr": "Eklediğiniz işaretçileri dışa/içe aktarmak ve temizlemek için yeni seçenek. (Sol menüdeki dördüncü sekme)."
-                    },
-                    "4": {
-                        "en": "Markers content will be updated with more details!",
-                        "tr": "İşaretleyicilerin içeriği daha fazla ayrıntıyla güncellenecektir!"
-                    }
-                }
-            },
-            "v1.2": {
-                "title": {
-                    "en": "Update 1.2",
-                    "tr": "Güncelleme 1.2"
+                    "release_date": "11/03/2018",
+                    "notes": [
+                        {
+                            "id": 0,
+                            "en": "Map resolution changed to 8192px.",
+                            "tr": "Harita çözünürlüğü 8192px olarak değiştirildi."
+                        },
+                        {
+                            "id": 1,
+                            "en": "Map coordinates now match in-game coordinates.",
+                            "tr": "Harita koordinatları artık oyun içi koordinatlarla eşleşiyor."
+                        },
+                        {
+                            "id": 2,
+                            "en": "If you have markers with the previous coordinate system on the map, they will be automatically converted to the new one.",
+                            "tr": "Haritada önceki koordinat sistemiyle işaretleyicileriniz varsa, bunlar otomatik olarak yenisine dönüştürülecektir."
+                        },
+                        {
+                            "id": 3,
+                            "en": "Markers content will be updated with more details!",
+                            "tr": "İşaretleyicilerin içeriği daha fazla ayrıntıyla güncellenecektir!"
+                        },
+                        {
+                            "id": 4,
+                            "en": "Markers content will be updated with more details!",
+                            "tr": "İşaretleyicilerin içeriği daha fazla ayrıntıyla güncellenecektir!"
+                        }
+                    ]
                 },
-                "release_date": "04/03/2018",
-                "notes": {
-                    "0": {
-                        "en": "All markers are removed from the game.",
-                        "tr": "Tüm işaretler oyundan çıkarıldı."
+                {
+                    "v": "1.2",
+                    "title": {
+                        "en": "Update 1.2",
+                        "tr": "Güncelleme 1.2"
                     },
-                    "1": {
-                        "en": "You can add a name and description to your markers, and also choose a marker icon.",
-                        "tr": "İşaretçilerinize bir ad ve açıklama ekleyebilir, ayrıca işaretçi simgesini de seçebilirsiniz."
-                    },
-                    "2": {
-                        "en": "You will see the coordinates in the marker's tooltip, these coordinates are in-game coordinates.",
-                        "tr": "İşaretçilerin açılır penceresinde koordinatları göreceksiniz, bu koordinatlar oyun içi koordinatlardır."
-                    },
-                    "3": {
-                        "en": "Use these coordinates if you have more information about a specific marker to help me find it.",
-                        "tr": "Belirli bir işaretçi hakkında daha fazla bilginiz varsa işaretçiyi bulmama yardımcı olması için bu koordinatları kullanın."
-                    },
-                    "4": {
-                        "en": "Some Woodland Gardens contain information about the plants you can find there.",
-                        "tr": "Bazı Woodland bahçelerinde orada hangi bitkileri bulabileceğinize dair bilgiler bulunur."
-                    },
-                    "5": {
-                        "en": "More to come!",
-                        "tr": "Gelmek için daha fazla!"
-                    }
-                }
-            },
-            "v1.0": {
-                "title": {
-                    "en": "Initial Version 1.0",
-                    "tr": "İlk sürüm 1.0"
+                    "release_date": "04/03/2018",
+                    "notes": [
+                        {
+                            "id": 0,
+                            "en": "All markers are removed from the game.",
+                            "tr": "Tüm işaretler oyundan çıkarıldı."
+                        },
+                        {
+                            "id": 1,
+                            "en": "You can add a name and description to your markers, and also choose a marker icon.",
+                            "tr": "İşaretçilerinize bir ad ve açıklama ekleyebilir, ayrıca işaretçi simgesini de seçebilirsiniz."
+                        },
+                        {
+                            "id": 2,
+                            "en": "You will see the coordinates in the marker's tooltip, these coordinates are in-game coordinates.",
+                            "tr": "İşaretçilerin açılır penceresinde koordinatları göreceksiniz, bu koordinatlar oyun içi koordinatlardır."
+                        },
+                        {
+                            "id": 3,
+                            "en": "Use these coordinates if you have more information about a specific marker to help me find it.",
+                            "tr": "Belirli bir işaretçi hakkında daha fazla bilginiz varsa işaretçiyi bulmama yardımcı olması için bu koordinatları kullanın."
+                        },
+                        {
+                            "id": 4,
+                            "en": "Some Woodland Gardens contain information about the plants you can find there.",
+                            "tr": "Bazı Woodland bahçelerinde orada hangi bitkileri bulabileceğinize dair bilgiler bulunur."
+                        },
+                        {
+                            "id": 5,
+                            "en": "More to come!",
+                            "tr": "Gelmek için daha fazla!"
+                        }
+                    ]
                 },
-                "release_date": "01/03/2018",
-                "notes": {
-                    "0": {
-                        "en": "In this version of the map, you can place markers around the map, and it saves it to your browser's local storage, even if you close it, it will stay there. Markers will only disappear if you clear your browser's cache!",
-                        "tr": "Haritanın bu sürümünde, haritanın etrafına işaretçiler yerleştirebilirsiniz ve bu, onu tarayıcınızdaki yerel depolama alanına kaydeder, kapatsanız bile orada kalır. Yalnızca tarayıcınızın önbelleğini temizlerseniz işaretçiler kaybolur!"
+                {
+                    "v": "1.0",
+                    "title": {
+                        "en": "Initial Version 1.0",
+                        "tr": "İlk sürüm 1.0"
                     },
-                    "1": {
-                        "en": "You can add a name and description to your markers, and also choose a marker icon.",
-                        "tr": "İşaretçilerinize bir ad ve açıklama ekleyebilir, ayrıca işaretçi simgesini de seçebilirsiniz."
-                    },
-                    "2": {
-                        "en": "The map will be updated daily with new markers and features.",
-                        "tr": "Harita her gün yeni işaretçiler ve özelliklerle güncellenecektir."
-                    }
+                    "release_date": "01/03/2018",
+                    "notes": [
+                        {
+                            "id": 0,
+                            "en": "In this version of the map, you can place markers around the map, and it saves it to your browser's local storage, even if you close it, it will stay there. Markers will only disappear if you clear your browser's cache!",
+                            "tr": "Haritanın bu sürümünde, haritanın etrafına işaretçiler yerleştirebilirsiniz ve bu, onu tarayıcınızdaki yerel depolama alanına kaydeder, kapatsanız bile orada kalır. Yalnızca tarayıcınızın önbelleğini temizlerseniz işaretçiler kaybolur!"
+                        },
+                        {
+                            "id": 1,
+                            "en": "You can add a name and description to your markers, and also choose a marker icon.",
+                            "tr": "İşaretçilerinize bir ad ve açıklama ekleyebilir, ayrıca işaretçi simgesini de seçebilirsiniz."
+                        },
+                        {
+                            "id": 2,
+                            "en": "The map will be updated daily with new markers and features.",
+                            "tr": "Harita her gün yeni işaretçiler ve özelliklerle güncellenecektir."
+                        }
+                    ]
                 }
-            }
+            ]
         }
     },
     "interactive": {

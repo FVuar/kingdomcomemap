@@ -43,6 +43,19 @@ function GetFlag(parent, lang) {
     div.src = "assets/flags/" + lang + `${lang === "tr" ? ".svg" : ".png"}`;
     parent.appendChild(div);
 }
+
+function getLatestVersion() {
+    let ver = "0.0.0";
+
+    get.panel.about.update.forEach((item) => {
+        if (parseFloat(item.v) > parseFloat(ver)) {
+            ver = item.v;
+        }
+    });
+    return ver;
+}
+
+
 let cez = {
     tablist: [
         {href: "#home", title: GetTablist("home", currentLang), icon: "home"},
@@ -50,7 +63,7 @@ let cez = {
         {href: "#about", title: GetTablist("about", currentLang), icon: "about"},
         {href: "#backup", title: GetTablist("backup", currentLang), icon: "inventory"}
     ],
-    version: "1.3.1",
+    version: getLatestVersion(),
     languages: [localStorage.getItem('lang') === "en" ? "en" : "tr", localStorage.getItem('lang') === "en" ? "tr" : "en"]
 }
 
@@ -289,41 +302,29 @@ function getSideBarContent() {
         sideBarContent.appendChild(sideBarPanel);
 
         sideBarClose(sideBarPanel);
+        function getUpdate(parent) {
+            get.panel.about.update.forEach((item) => {
+                console.log("about sayısı "+get.panel.about.update.length);
+                const updateTitle = document.createElement('h3');
+                updateTitle.innerText = item.title[currentLang];
+                parent.appendChild(updateTitle);
 
-        function getTitle(parent, text, date) {
-            const updateTitle = document.createElement('h3');
-            updateTitle.innerText = text;
-            parent.appendChild(updateTitle);
+                const updateDay = document.createElement('span');
+                updateDay.classList.add('updateday');
+                updateDay.innerText = item.release_date;
+                parent.appendChild(updateDay);
 
-            const updateDay = document.createElement('span');
-            updateDay.classList.add('updateday');
-            updateDay.innerText = date;
-            parent.appendChild(updateDay);
-        }
-        function getUpdateList(parent, version) {
-            const updateList = document.createElement('ul');
-            updateList.classList.add('update-list');
-            parent.appendChild(updateList);
+                const updateList = document.createElement('ul');
+                updateList.classList.add('update-list');
+                parent.appendChild(updateList);
 
-            const notes = get.panel.about[version].notes;
-            for (let key in notes) {
-                if (notes.hasOwnProperty(key)) {
+                item.notes.forEach((note) => {
                     const listItem = document.createElement('li');
-                    listItem.innerText = notes[key][currentLang];
+                    listItem.innerText = note[currentLang];
                     listItem.classList.add('text');
                     updateList.appendChild(listItem);
-                }
-            }
-        }
-        function getUpdate() {
-            getTitle(contentUpdate, get.panel.about["v1.3.1"].title[currentLang], get.panel.about["v1.3.1"].release_date);
-            getUpdateList(contentUpdate, "v1.3.1");
-            getTitle(contentUpdate, get.panel.about["v1.3"].title[currentLang], get.panel.about["v1.3"].release_date);
-            getUpdateList(contentUpdate, "v1.3");
-            getTitle(contentUpdate, get.panel.about["v1.2"].title[currentLang], get.panel.about["v1.2"].release_date);
-            getUpdateList(contentUpdate, "v1.2");
-            getTitle(contentUpdate, get.panel.about["v1.0"].title[currentLang], get.panel.about["v1.0"].release_date);
-            getUpdateList(contentUpdate, "v1.0");
+                })
+            })
         }
         function getText(parent, type, text, htmlTYPE) {
             const element = document.createElement(htmlTYPE);
@@ -346,7 +347,7 @@ function getSideBarContent() {
             getText(legalInfo, 'text creator', get.panel.about.creadits.author[currentLang], 'p');
             getText(legalInfo, 'text', get.panel.about.creadits.thanks["0"][currentLang], 'p');
             getText(legalInfo, 'text', get.panel.about.creadits.thanks["1"][currentLang], 'p');
-            getText(legalInfo, 'text', get.panel.about.creadits.translator[currentLang], 'p');
+            currentLang === "tr" && getText(legalInfo, 'text', get.panel.about.creadits.translator[currentLang], 'p');
             getText(legalInfo, 'text', get.panel.about.creadits.copyright[currentLang], 'p');
         }
 
@@ -356,7 +357,7 @@ function getSideBarContent() {
         contentUpdate.classList.add('content','update');
         sideBarPanel.appendChild(contentUpdate);
 
-        getUpdate();
+        getUpdate(contentUpdate);
         getLegalInfo();
 
     }
