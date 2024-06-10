@@ -2,16 +2,14 @@ var get = {
     "meta": {
         "title": {
             "en": "Interactive Map for Kingdom Come Deliverance",
-            "tr": "Türkçeleştirilmiş Kingdom Come Deliverance Haritası - Kingdom Come Deliverance için İnteraktif Harita",
+            "tr": "Kingdom Come Deliverance için İnteraktif Harita",
         },
         "description": {
             "en": "Interactive Map for Kingdom Come Deliverance",
             "tr": "Kingdom Come Deliverance için İnteraktif Harita"
         },
-        "author": {
-            "en": "Roger Nobrega",
-            "tr": "Roger Nobrega"
-        }
+        "author": "Roger Nobrega",
+        "publisher": "ahmetcanisik"
     },
     "tablist": {
         "home": {

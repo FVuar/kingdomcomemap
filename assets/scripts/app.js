@@ -11,12 +11,8 @@ function getMeta() {
 
     const description = document.querySelector('meta[name="description"]');
     description.content = get.meta.description[currentLang];
-
-    const author = document.querySelector('meta[name="author"]');
-    author.content = get.meta.author[currentLang];
-
-    const html = document.querySelector('html');
-    html.lang = currentLang;
+    
+    document.documentElement.lang = currentLang;
 }
 function goBackup() {
     const liElements = document.querySelectorAll('.sidebar-tabs ul li');
